@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "socketWebRTC/SocketIOManager.swift"
+            timestampString = "499697834.901933"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "sendMessage(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "socketWebRTC.SocketIOManager.sendMessage (__ObjC.NSDictionary) -&gt; ()"
+                  moduleName = "socketWebRTC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jianlongjin/Documents/Work/Maxim/ev-ios-tenant/socketWebRTC/SocketIOManager.swift"
+                  timestampString = "499698525.692179"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "268">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "socketWebRTC.SocketIOManager.(sendMessage (__ObjC.NSDictionary) -&gt; ()).(closure #1)"
+                  moduleName = "socketWebRTC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jianlongjin/Documents/Work/Maxim/ev-ios-tenant/socketWebRTC/SocketIOManager.swift"
+                  timestampString = "499698525.696489"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "socketWebRTC/CallConnectViewController.swift"
+            timestampString = "500453959.030012"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "409"
+            endingLineNumber = "409"
+            landmarkName = "dropBtnPressed(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "socketWebRTC.CallConnectViewController.(dropBtnPressed (Swift.AnyObject) -&gt; ()).(closure #1)"
+                  moduleName = "socketWebRTC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jianlongjin/Documents/Work/Maxim/ev-ios-tenant/socketWebRTC/CallConnectViewController.swift"
+                  timestampString = "500477139.696273"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "409"
+                  endingLineNumber = "409"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "socketWebRTC.CallConnectViewController.(dropBtnPressed (Swift.AnyObject) -&gt; ()).(closure #1)"
+                  moduleName = "socketWebRTC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jianlongjin/Documents/Work/Maxim/ev-ios-tenant/socketWebRTC/CallConnectViewController.swift"
+                  timestampString = "500477139.700703"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "409"
+                  endingLineNumber = "409"
+                  offsetFromSymbolStart = "956">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
