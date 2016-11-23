@@ -36,15 +36,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             opt.start { response in
                 if response.error != nil {
                     completionHandler(1)
-//                    let data = response.text?.data(using: .utf8)!
-//                    if let parsedData = try? JSONSerialization.jsonObject(with: data!) as? [String:String] {
-//                        let reason = (parsedData?["reason"])! as String
-//                        if reason.contains("unknown") {
-//                            completionHandler(2)
-//                        } else if reason.contains("error") {
-//                            completionHandler(1)
-//                        }
-//                    }
                 } else {
                     completionHandler(0)
                 }

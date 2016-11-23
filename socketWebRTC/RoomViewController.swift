@@ -21,7 +21,22 @@ class RoomViewController: UIViewController {
         mobile_number = UserDefaults.standard.value(forKey: "mobile_number") as! String
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         device_token = appDelegate.g_deviceToken!
-        registerDeviceToken()
+        
+        registerDeviceTokenWithTenents(completionHandler: {(_state) in
+            if _state {
+                UserDefaults.standard.setValue(self.device_token, forKey: "deviceToken")
+                UserDefaults.standard.synchronize()
+            } else {
+                self.registerDeviceTokenWithPrequelTenents(completionHandler: { (_state1) in
+                    if _state1 {
+                        UserDefaults.standard.setValue(self.device_token, forKey: "deviceToken")
+                        UserDefaults.standard.synchronize()
+                    } else {
+                        //do something in the case which got error
+                    }
+                })
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,21 +47,28 @@ class RoomViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.roomInfoBtn.layer.cornerRadius = self.roomInfoBtn.layer.frame.width / 2
-        getUserInfo()
+        getUserInfo(completionHandler: {(_state) in
+            if !_state {
+                self.getUserInfoPrequel(completionHandler: { (_state1) in
+                    if !_state1 {
+                        //do something
+                    }
+                })
+            }
+        })
     }
     
-    func registerDeviceToken() {
+    func registerDeviceTokenWithTenents( completionHandler: @escaping (_ _state: Bool) -> ()) {
         let urlString = "http://ec2-52-24-49-20.us-west-2.compute.amazonaws.com:2017/tenants/\(mobile_number)"
         let parameters = ["deviceToken" : device_token]
         
         do {
             let opt = try HTTP.PUT(urlString, parameters: parameters, headers: nil, requestSerializer: JSONParameterSerializer())
             opt.start { response in
-                if let err = response.error {
-                    print("isValidActivateCode ===> error: \(err.localizedDescription)")
+                if response.error != nil {
+                    completionHandler(false)
                 }else {
-                    UserDefaults.standard.setValue(self.device_token, forKey: "deviceToken")
-                    UserDefaults.standard.synchronize()
+                    completionHandler(true)
                 }
             }
         } catch let error {
@@ -54,15 +76,33 @@ class RoomViewController: UIViewController {
         }
     }
     
-    func getUserInfo() {
-        let urlString = "http://ec2-52-24-49-20.us-west-2.compute.amazonaws.com:2017/tenant-locations?phone=\(mobile_number)"
+    func registerDeviceTokenWithPrequelTenents( completionHandler: @escaping (_ _state: Bool) -> ()) {
+        let urlString = "http://ec2-52-24-49-20.us-west-2.compute.amazonaws.com:2017/prequal-tenants/\(mobile_number)"
+        let parameters = ["deviceToken" : device_token]
+        
+        do {
+            let opt = try HTTP.PUT(urlString, parameters: parameters, headers: nil, requestSerializer: JSONParameterSerializer())
+            opt.start { response in
+                if response.error != nil {
+                    completionHandler(false)
+                }else {
+                    completionHandler(true)
+                }
+            }
+        } catch let error {
+            print("got an error creating the request: \(error)")
+        }
+    }
+    
+    func getUserInfo( completionHandler: @escaping (_ _state: Bool) -> ()) {
+        let urlString = "http://ec2-52-24-49-20.us-west-2.compute.amazonaws.com:2017/tenant-locations/\(mobile_number)"
 //        let parameters = [:]
         
         do {
             let opt = try HTTP.GET(urlString, parameters: nil, headers: nil, requestSerializer: JSONParameterSerializer())
             opt.start { response in
                 if response.error != nil {
-                    
+                    completionHandler(false)
                 }else {
                     let data = response.text?.data(using: .utf8)!
                     if let parsedData = try? JSONSerialization.jsonObject(with: data!) as? [String:Any] {
@@ -73,6 +113,34 @@ class RoomViewController: UIViewController {
 //                            }
                         }
                     }
+                    completionHandler(true)
+                }
+            }
+        } catch let error {
+            print("got an error creating the request: \(error)")
+        }
+    }
+    
+    func getUserInfoPrequel( completionHandler: @escaping (_ _state: Bool) -> ()) {
+        let urlString = "http://ec2-52-24-49-20.us-west-2.compute.amazonaws.com:2017/prequal-tenants/\(mobile_number)"
+        //        let parameters = [:]
+        
+        do {
+            let opt = try HTTP.GET(urlString, parameters: nil, headers: nil, requestSerializer: JSONParameterSerializer())
+            opt.start { response in
+                if response.error != nil {
+                    completionHandler(false)
+                }else {
+                    let data = response.text?.data(using: .utf8)!
+                    if let parsedData = try? JSONSerialization.jsonObject(with: data!) as? [String:Any] {
+                        if let apartments = parsedData?["apartments"] as? [[String:Any]] {
+                            //                            if let apt = apartments[0]["apt"] as? String {
+                            //                                let adr = apt + String(describing: apartments[1]["street"])
+                            //                                self.roomInfoLabel.text = adr
+                            //                            }
+                        }
+                    }
+                    completionHandler(true)
                 }
             }
         } catch let error {

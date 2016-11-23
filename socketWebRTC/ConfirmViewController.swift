@@ -73,7 +73,8 @@ class ConfirmViewController: UIViewController, UITextFieldDelegate {
                         self.navigationController?.pushViewController(registerVC, animated: true)
                     })
                     alertViewController.addAction(OkAction)
-                    self.present(alertViewController, animated: true, completion: nil)                }
+                    self.present(alertViewController, animated: true, completion: nil)
+                }
             } else {
                 let alertViewController = UIAlertController(title: "Alert", message: "The Activation Code you entered is incorrect. Please check the code and try again", preferredStyle: .alert)
                 let OkAction = UIAlertAction(title: "OK", style: .default, handler: nil)
