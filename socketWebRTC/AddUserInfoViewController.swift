@@ -16,6 +16,8 @@ class AddUserInfoViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var stateTextField: UITextField!
     @IBOutlet weak var zipcodeTextField: UITextField!
     @IBOutlet weak var submitBtn: UIButton!
+    @IBOutlet weak var closeBtn: UIButton!
+    @IBOutlet weak var phonenumberLabel: UILabel!
     
     var mobile_number : String = ""
     var device_token : String = ""
@@ -31,7 +33,9 @@ class AddUserInfoViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.phonenumberLabel.text = mobile_number
         self.submitBtn.layer.cornerRadius = 5.0
+        self.closeBtn.layer.cornerRadius = 5.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,6 +107,10 @@ class AddUserInfoViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
+    @IBAction func closeBtnPressed(_ sender: Any) {
+    }
+
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == firstnameTextField {
             lastnameTextField.becomeFirstResponder()

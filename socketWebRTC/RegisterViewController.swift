@@ -35,15 +35,16 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             let opt = try HTTP.POST(urlString, parameters: parameters, headers: nil, requestSerializer: JSONParameterSerializer())
             opt.start { response in
                 if response.error != nil {
-                    let data = response.text?.data(using: .utf8)!
-                    if let parsedData = try? JSONSerialization.jsonObject(with: data!) as? [String:String] {
-                        let reason = (parsedData?["reason"])! as String
-                        if reason.contains("unknown") {
-                            completionHandler(2)
-                        } else if reason.contains("error") {
-                            completionHandler(1)
-                        }
-                    }
+                    completionHandler(1)
+//                    let data = response.text?.data(using: .utf8)!
+//                    if let parsedData = try? JSONSerialization.jsonObject(with: data!) as? [String:String] {
+//                        let reason = (parsedData?["reason"])! as String
+//                        if reason.contains("unknown") {
+//                            completionHandler(2)
+//                        } else if reason.contains("error") {
+//                            completionHandler(1)
+//                        }
+//                    }
                 } else {
                     completionHandler(0)
                 }
@@ -56,22 +57,16 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func submitBtnClick(_ sender: AnyObject) {
         if let phonenumber = self.phonenumberTextField.text {
-            UserDefaults.standard.setValue(phonenumber, forKey: "mobile_number")
-            UserDefaults.standard.synchronize()
-            
             self.isAlreadyRegistger(number: phonenumber, completionHandler: { (_state) in
                 DispatchQueue.main.async{
+                    UserDefaults.standard.setValue(phonenumber, forKey: "mobile_number")
+                    UserDefaults.standard.synchronize()
                     if _state == 0 { // OK
                         let confirmVC = self.storyboard?.instantiateViewController(withIdentifier: "confirmVC") as! ConfirmViewController
                         self.navigationController?.pushViewController(confirmVC, animated: true)
-                    } else if _state == 2 { // Unknown
+                    } else if _state == 1 { // Unknown
                         let addUserInfoVC = self.storyboard?.instantiateViewController(withIdentifier: "addUserInfoVC") as! AddUserInfoViewController
                         self.navigationController?.pushViewController(addUserInfoVC, animated: true)
-                    } else if _state == 1 {
-                        let alertViewController = UIAlertController(title: "Alert", message: "You have entered an invalid number. Please check your number and try again", preferredStyle: .alert)
-                        let OkAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                        alertViewController.addAction(OkAction)
-                        self.present(alertViewController, animated: true, completion: nil)
                     } else {
                         let alertViewController = UIAlertController(title: "Alert", message: "Network connection was failed. Please check your connection and try again later", preferredStyle: .alert)
                         let OkAction = UIAlertAction(title: "OK", style: .default, handler: nil)

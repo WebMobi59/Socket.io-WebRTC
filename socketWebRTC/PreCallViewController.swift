@@ -8,17 +8,17 @@ import SwiftHTTP
 
 class PreCallViewController: UIViewController {
 
-    @IBOutlet weak var firstNameLabel: UILabel!
-    @IBOutlet weak var lastNameLabel: UILabel!
+
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var streetLabel: UILabel!
     @IBOutlet weak var suiteLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var stateLabel: UILabel!
     @IBOutlet weak var zipCodeLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
-    @IBOutlet weak var addPhoneNumbtn: UIButton!
-    @IBOutlet weak var rotateBtn: UIButton!
-    @IBOutlet weak var callBtn: UIButton!
+    @IBOutlet weak var submitBtn: UIButton!
+
     
     var mobile_number : String = ""
     
@@ -26,15 +26,10 @@ class PreCallViewController: UIViewController {
         super.viewDidLoad()
         
         mobile_number = UserDefaults.standard.value(forKey: "mobile_number") as! String
-        self.addPhoneNumbtn.layer.cornerRadius = self.addPhoneNumbtn.layer.frame.width / 2
         
-        self.callBtn.layer.borderWidth = 1.0
-        self.callBtn.layer.borderColor = UIColor(red: 39/255, green: 122/255, blue: 1.0, alpha: 1.0).cgColor
-        self.callBtn.layer.cornerRadius = 5.0
-        
-        self.rotateBtn.layer.borderWidth = 1.0
-        self.rotateBtn.layer.borderColor = UIColor(red: 39/255, green: 122/255, blue: 1.0, alpha: 1.0).cgColor
-        self.rotateBtn.layer.cornerRadius = 5.0
+        self.submitBtn.layer.borderWidth = 1.0
+        self.submitBtn.layer.borderColor = UIColor(red: 39/255, green: 122/255, blue: 1.0, alpha: 1.0).cgColor
+        self.submitBtn.layer.cornerRadius = 5.0
         
         getUserInfo()
         // Do any additional setup after loading the view.
@@ -68,21 +63,25 @@ class PreCallViewController: UIViewController {
             print("got an error creating the request: \(error)")
         }
     }
-
-    @IBAction func addPhoneNumBtnPressed(_ sender: AnyObject) {
+    
+    @IBAction func subnitBtnPressed(_ sender: Any) {
         
     }
 
-    @IBAction func callBtnPressed(_ sender: AnyObject) {
-        self.view.removeFromSuperview()
-        UserDefaults.standard.setValue(false, forKey: "fromAPNS")
-        UserDefaults.standard.synchronize()
-        let callConnectVC = self.storyboard?.instantiateViewController(withIdentifier: "callConnectVC") as! CallConnectViewController
-        self.navigationController?.pushViewController(callConnectVC, animated: true)
-    }
-    
-    @IBAction func rotateBtnPressed(_ sender: AnyObject) {
-        self.view.removeFromSuperview()
-    }
+//    @IBAction func addPhoneNumBtnPressed(_ sender: AnyObject) {
+//        
+//    }
+//
+//    @IBAction func callBtnPressed(_ sender: AnyObject) {
+//        self.view.removeFromSuperview()
+//        UserDefaults.standard.setValue(false, forKey: "fromAPNS")
+//        UserDefaults.standard.synchronize()
+//        let callConnectVC = self.storyboard?.instantiateViewController(withIdentifier: "callConnectVC") as! CallConnectViewController
+//        self.navigationController?.pushViewController(callConnectVC, animated: true)
+//    }
+//    
+//    @IBAction func rotateBtnPressed(_ sender: AnyObject) {
+//        self.view.removeFromSuperview()
+//    }
 
 }

@@ -30,9 +30,16 @@ class ConfirmViewController: UIViewController, UITextFieldDelegate {
         do {
             let opt = try HTTP.PUT(urlString, parameters: parameters, headers: nil, requestSerializer: JSONParameterSerializer())
             opt.start { response in
-                if let err = response.error {
-                    print("isValidActivateCode ===> error: \(err.localizedDescription)")
-                    completionHandler(1)
+                if response.error != nil {
+                    let data = response.text?.data(using: .utf8)!
+                    if let parsedData = try? JSONSerialization.jsonObject(with: data!) as? [String:String] {
+                        let reason = (parsedData?["reason"])! as String
+                        if reason.contains("rejected") {
+                            completionHandler(2)
+                        } else {
+                            completionHandler(1)
+                        }
+                    }
                 }else {
                     completionHandler(0)
                 }
@@ -55,16 +62,20 @@ class ConfirmViewController: UIViewController, UITextFieldDelegate {
             if _bool == 0 {
                 DispatchQueue.main.async(){
                     //code
-                    let addUserVC = self.storyboard?.instantiateViewController(withIdentifier: "addUserInfoVC") as! AddUserInfoViewController
-                    self.navigationController?.pushViewController(addUserVC, animated: true)
-                }
-            } else if _bool == 2 {
-                DispatchQueue.main.async {
                     let roomVC = self.storyboard?.instantiateViewController(withIdentifier: "roomVC") as! RoomViewController
                     self.navigationController?.pushViewController(roomVC, animated: true)
                 }
+            } else if _bool == 1 {
+                DispatchQueue.main.async {
+                    let alertViewController = UIAlertController(title: "Alert", message: "Please check the phone number you entered and try again", preferredStyle: .alert)
+                    let OkAction = UIAlertAction(title: "OK", style: .default, handler: { (ok) in
+                        let registerVC = self.storyboard?.instantiateViewController(withIdentifier: "registerVC") as! RegisterViewController
+                        self.navigationController?.pushViewController(registerVC, animated: true)
+                    })
+                    alertViewController.addAction(OkAction)
+                    self.present(alertViewController, animated: true, completion: nil)                }
             } else {
-                let alertViewController = UIAlertController(title: "Alert", message: "You have entered an incorrect activation code. Please check your code and try again", preferredStyle: .alert)
+                let alertViewController = UIAlertController(title: "Alert", message: "The Activation Code you entered is incorrect. Please check the code and try again", preferredStyle: .alert)
                 let OkAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alertViewController.addAction(OkAction)
                 self.present(alertViewController, animated: true, completion: nil)
