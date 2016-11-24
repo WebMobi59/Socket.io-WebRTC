@@ -31,6 +31,7 @@ class ConfirmViewController: UIViewController, UITextFieldDelegate {
             let opt = try HTTP.PUT(urlString, parameters: parameters, headers: nil, requestSerializer: JSONParameterSerializer())
             opt.start { response in
                 if response.error != nil {
+                    print(response.text!)
                     let data = response.text?.data(using: .utf8)!
                     if let parsedData = try? JSONSerialization.jsonObject(with: data!) as? [String:String] {
                         let reason = (parsedData?["reason"])! as String
@@ -59,14 +60,11 @@ class ConfirmViewController: UIViewController, UITextFieldDelegate {
     @IBAction func confirmBtnPressed(_ sender: AnyObject) {
         let activationCode = self.confirmTextField.text
         self.isValidActivationCode(code: activationCode! as String) { (_bool) in
-            if _bool == 0 {
-                DispatchQueue.main.async(){
-                    //code
+            DispatchQueue.main.async {
+                if _bool == 0 { // Success
                     let roomVC = self.storyboard?.instantiateViewController(withIdentifier: "roomVC") as! RoomViewController
                     self.navigationController?.pushViewController(roomVC, animated: true)
-                }
-            } else if _bool == 1 {
-                DispatchQueue.main.async {
+                } else if _bool == 1 { //Expired
                     let alertViewController = UIAlertController(title: "Alert", message: "Please check the phone number you entered and try again", preferredStyle: .alert)
                     let OkAction = UIAlertAction(title: "OK", style: .default, handler: { (ok) in
                         let registerVC = self.storyboard?.instantiateViewController(withIdentifier: "registerVC") as! RegisterViewController
@@ -74,12 +72,12 @@ class ConfirmViewController: UIViewController, UITextFieldDelegate {
                     })
                     alertViewController.addAction(OkAction)
                     self.present(alertViewController, animated: true, completion: nil)
+                } else { //Rejected
+                    let alertViewController = UIAlertController(title: "Alert", message: "The Activation Code you entered is incorrect. Please check the code and try again", preferredStyle: .alert)
+                    let OkAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertViewController.addAction(OkAction)
+                    self.present(alertViewController, animated: true, completion: nil)
                 }
-            } else {
-                let alertViewController = UIAlertController(title: "Alert", message: "The Activation Code you entered is incorrect. Please check the code and try again", preferredStyle: .alert)
-                let OkAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alertViewController.addAction(OkAction)
-                self.present(alertViewController, animated: true, completion: nil)
             }
         }
     }
@@ -88,14 +86,4 @@ class ConfirmViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

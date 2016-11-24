@@ -28,13 +28,14 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }
     
     func isAlreadyRegistger(number : String, completionHandler: @escaping (_ _state: Int) -> ()){
-        let urlString = "http://ec2-52-24-49-20.us-west-2.compute.amazonaws.com:2017/tenant-authorization"//API change        
+        let urlString = "http://ec2-52-24-49-20.us-west-2.compute.amazonaws.com:2017/tenant-authorization"
         let parameters = ["id" : number]
         
         do {
             let opt = try HTTP.POST(urlString, parameters: parameters, headers: nil, requestSerializer: JSONParameterSerializer())
             opt.start { response in
                 if response.error != nil {
+                    print(response.text!)
                     completionHandler(1)
                 } else {
                     completionHandler(0)

@@ -476,11 +476,10 @@ with the provided address</string>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmG-xc-h9V">
                                         <rect key="frame" x="72" y="16.5" width="191" height="33"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <state key="normal" title="5C 35 Riverstone Ave">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="roomBtnPressed:" destination="ysQ-ii-5R5" eventType="touchUpInside" id="rOG-1E-xBx"/>
                                             <segue destination="Ozg-qN-89C" kind="push" id="qwI-dZ-C3h"/>
                                         </connections>
                                     </button>
@@ -664,6 +663,9 @@ with the provided address</string>
                                     <action selector="subnitBtnPressed:" destination="J29-cv-0fY" eventType="touchUpInside" id="Le7-h1-qrd"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Sxg-h4-boQ">
+                                <rect key="frame" x="82" y="330" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -702,11 +704,13 @@ with the provided address</string>
                             <constraint firstItem="Ke6-Ly-Gx7" firstAttribute="leading" secondItem="pKK-yA-yoc" secondAttribute="leading" id="cad-pv-yoa"/>
                             <constraint firstItem="YT5-ey-jg8" firstAttribute="top" secondItem="9sR-mV-CNj" secondAttribute="bottom" constant="10" id="dHW-31-pwV"/>
                             <constraint firstItem="1aw-pe-qDb" firstAttribute="top" secondItem="YT5-ey-jg8" secondAttribute="bottom" constant="27" id="dOB-g4-1rw"/>
+                            <constraint firstItem="Sxg-h4-boQ" firstAttribute="centerY" secondItem="VmK-Aj-SDK" secondAttribute="centerY" id="dzM-em-tO7"/>
                             <constraint firstItem="6rN-pO-qaU" firstAttribute="leading" secondItem="RKB-hV-sHY" secondAttribute="leading" id="fuP-ns-ZxA"/>
                             <constraint firstItem="qCL-ma-PZr" firstAttribute="top" secondItem="VmK-Aj-SDK" secondAttribute="bottom" constant="45" id="hs5-HL-Aw1"/>
                             <constraint firstItem="6z3-l6-CpJ" firstAttribute="centerY" secondItem="JTV-MR-Grq" secondAttribute="centerY" id="inQ-As-mp3"/>
                             <constraint firstItem="kPV-md-UxN" firstAttribute="width" secondItem="fv2-DN-nzr" secondAttribute="width" id="kUq-xc-WWG"/>
                             <constraint firstItem="ecI-bX-wcp" firstAttribute="centerY" secondItem="OFa-gZ-dSI" secondAttribute="centerY" id="kzz-ox-hMI"/>
+                            <constraint firstItem="VmK-Aj-SDK" firstAttribute="leading" secondItem="Sxg-h4-boQ" secondAttribute="trailing" constant="8" id="nOn-Dh-RIU"/>
                             <constraint firstItem="6rN-pO-qaU" firstAttribute="trailing" secondItem="RKB-hV-sHY" secondAttribute="trailing" id="ncl-tp-CtH"/>
                             <constraint firstItem="fv2-DN-nzr" firstAttribute="width" secondItem="JTV-MR-Grq" secondAttribute="width" id="pOD-MV-gia"/>
                             <constraint firstItem="pKK-yA-yoc" firstAttribute="trailing" secondItem="6z3-l6-CpJ" secondAttribute="trailing" id="sZ6-SR-r5f"/>
@@ -720,6 +724,7 @@ with the provided address</string>
                     <connections>
                         <outlet property="cityLabel" destination="pKK-yA-yoc" id="1Nm-Iv-ziC"/>
                         <outlet property="firstNameTextField" destination="RKB-hV-sHY" id="phN-PH-DxZ"/>
+                        <outlet property="indicatorLoading" destination="Sxg-h4-boQ" id="uLP-re-PjO"/>
                         <outlet property="lastNameTextField" destination="6rN-pO-qaU" id="b46-SH-nla"/>
                         <outlet property="phoneNumberLabel" destination="Vrf-ze-cko" id="1oa-sJ-dLM"/>
                         <outlet property="stateLabel" destination="Ke6-Ly-Gx7" id="YdG-1C-zvR"/>

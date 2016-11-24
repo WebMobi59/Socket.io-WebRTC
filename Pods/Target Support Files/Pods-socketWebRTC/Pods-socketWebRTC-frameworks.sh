@@ -86,6 +86,8 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/CameraManager/CameraManager.framework"
   install_framework "$BUILT_PRODUCTS_DIR/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MZAppearance/MZAppearance.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MZFormSheetPresentationController/MZFormSheetPresentationController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Socket.IO-Client-Swift/SocketIO.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftHTTP/SwiftHTTP.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftMessageBar/SwiftMessageBar.framework"
@@ -93,6 +95,8 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/CameraManager/CameraManager.framework"
   install_framework "$BUILT_PRODUCTS_DIR/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MZAppearance/MZAppearance.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MZFormSheetPresentationController/MZFormSheetPresentationController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Socket.IO-Client-Swift/SocketIO.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftHTTP/SwiftHTTP.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftMessageBar/SwiftMessageBar.framework"

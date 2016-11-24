@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MZAppearance.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MZFormSheetPresentationController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-socketWebRTC.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1520003FEBEC114D6C84F832AFEDB994</key>
+		<key>3CB17C6B6D5F08F6B3350CCEC6B1E0F6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1CBA07EDDCB81FF8C0B77826543C68BC</key>
+		<key>4DC059E04CBA98AEDDB5C34E02D551E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4FEFFF8BCFFF25082AF4A867552C5F52</key>
+		<key>70D462634F7BD6635A7C8AC01780C67F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>74915FE350FE7F744C7ED0556F54B32A</key>
+		<key>B260FF84981F75A2AD79FB50FBE6FF76</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B87EBB09C2F5E3A0047B03F582E2ABF0</key>
+		<key>C30488D0CF3A7F11CD47499E5A4A476D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F28FAAE6CDF097D2C0662E11B2C63223</key>
+		<key>E6C8E444575114CFC070DCA09FFC67FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F6C9B6B0E7B53BC05A5795D70DC272C3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FFBE657764C9F6D8E01DDE2949BD2E64</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -5,6 +5,7 @@
 
 import UIKit
 import SwiftHTTP
+import MZFormSheetPresentationController
 
 class PreCallViewController: UIViewController {
 
@@ -18,9 +19,10 @@ class PreCallViewController: UIViewController {
     @IBOutlet weak var zipCodeLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var submitBtn: UIButton!
-
+    @IBOutlet weak var indicatorLoading: UIActivityIndicatorView!
     
     var mobile_number : String = ""
+    var userInfo = [String:String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +33,20 @@ class PreCallViewController: UIViewController {
         self.submitBtn.layer.borderColor = UIColor(red: 39/255, green: 122/255, blue: 1.0, alpha: 1.0).cgColor
         self.submitBtn.layer.cornerRadius = 5.0
         
-        getUserInfo()
+        initUI()
+//        getUserInfo()
         // Do any additional setup after loading the view.
+    }
+    
+    func initUI() {
+        self.firstNameTextField.text = userInfo["first"]
+        self.lastNameTextField.text = userInfo["last"]
+        self.streetLabel.text = userInfo["street"]
+        self.suiteLabel.text = userInfo["apt"]
+        self.cityLabel.text = userInfo["city"]
+        self.stateLabel.text = userInfo["state"]
+        self.zipCodeLabel.text = userInfo["zip"]
+        self.phoneNumberLabel.text = mobile_number
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,23 +54,19 @@ class PreCallViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func getUserInfo() {
-        let urlString = "http://ec2-52-24-49-20.us-west-2.compute.amazonaws.com:2017/tenant-locations?phone=\(mobile_number)"
-        //        let parameters = [:]
+    func updateUserName( completionHandler: @escaping (_ _state: Bool) -> ()) {
+        let urlString = "http://ec2-52-24-49-20.us-west-2.compute.amazonaws.com:2017/debug/prequal-tenants"
+        let parameters = ["id" : mobile_number, "first" : self.firstNameTextField.text!, "last" : self.lastNameTextField.text!]
         
         do {
-            let opt = try HTTP.GET(urlString, parameters: nil, headers: nil, requestSerializer: JSONParameterSerializer())
+            let opt = try HTTP.POST(urlString, parameters: parameters, headers: nil, requestSerializer: JSONParameterSerializer())
             opt.start { response in
-                if response.error == nil {
-                    let data = response.text?.data(using: .utf8)!
-                    if let parsedData = try? JSONSerialization.jsonObject(with: data!) as? [String:Any] {
-                        if let apartments = parsedData?["apartments"] as? [[String:Any]] {
-                            print(apartments)
-                        }
-                        
-                    }
+                if response.error != nil {
+                    print("Error in POST http://ec2-52-24-49-20.us-west-2.compute.amazonaws.com:2017/debug/prequal-tenants")
+                    print(response.text!)
+                    completionHandler(false)
                 }else {
-                    
+                    completionHandler(true)
                 }
             }
         } catch let error {
@@ -65,23 +75,14 @@ class PreCallViewController: UIViewController {
     }
     
     @IBAction func subnitBtnPressed(_ sender: Any) {
-        
+        self.submitBtn.isEnabled = false
+        self.indicatorLoading.startAnimating()
+        self.updateUserName(completionHandler: { (_state) in
+            if _state { // Submit is success
+                self.dismiss(animated: true, completion: nil)
+            } else { // Submit is failed
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
     }
-
-//    @IBAction func addPhoneNumBtnPressed(_ sender: AnyObject) {
-//        
-//    }
-//
-//    @IBAction func callBtnPressed(_ sender: AnyObject) {
-//        self.view.removeFromSuperview()
-//        UserDefaults.standard.setValue(false, forKey: "fromAPNS")
-//        UserDefaults.standard.synchronize()
-//        let callConnectVC = self.storyboard?.instantiateViewController(withIdentifier: "callConnectVC") as! CallConnectViewController
-//        self.navigationController?.pushViewController(callConnectVC, animated: true)
-//    }
-//    
-//    @IBAction func rotateBtnPressed(_ sender: AnyObject) {
-//        self.view.removeFromSuperview()
-//    }
-
 }

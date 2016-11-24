@@ -9,5 +9,6 @@ target 'socketWebRTC' do
     pod 'IQKeyboardManagerSwift', '4.0.6'
     pod 'CameraManager', '~> 3.0'
     pod 'SwiftMessageBar'
+    pod 'MZFormSheetPresentationController'
 end
 
