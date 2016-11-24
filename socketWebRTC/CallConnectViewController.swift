@@ -308,9 +308,9 @@ class CallConnectViewController: UIViewController, RTCSessionDescriptionDelegate
     func sigConnect(_ wsUrl:String) {
         wsServerUrl = wsUrl
 //        socket.connect()
-        let opts:[String: AnyObject] = [
-            "log"  : true as AnyObject
-        ]
+//        let opts:[String: AnyObject] = [
+//            "log"  : true as AnyObject
+//        ]
         Log("connecting to " + wsServerUrl)
         
         socket.on("connect") { data in
@@ -353,7 +353,7 @@ class CallConnectViewController: UIViewController, RTCSessionDescriptionDelegate
             } else if (type == "answer") {
                 self.Log("Received answer, setting answer SDP")
                 let sdp = RTCSessionDescription(type: type, sdp: json["sdp"] as! String)
-                print(sdp)
+                print(sdp!)
                 self.onAnswer(sdp!)
             } else if (type == "candidate" && self.peerStarted) {
                 self.Log("Received ICE candidate...")
