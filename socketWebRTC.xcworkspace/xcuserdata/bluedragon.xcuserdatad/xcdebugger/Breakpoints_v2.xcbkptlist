@@ -57,46 +57,62 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "socketWebRTC/CallConnectViewController.swift"
-            timestampString = "500453959.030012"
+            filePath = "socketWebRTC/PreCallViewController.swift"
+            timestampString = "502254248.4026"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "409"
-            endingLineNumber = "409"
-            landmarkName = "dropBtnPressed(_:)"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "subnitBtnPressed(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "socketWebRTC.CallConnectViewController.(dropBtnPressed (Swift.AnyObject) -&gt; ()).(closure #1)"
-                  moduleName = "socketWebRTC"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jianlongjin/Documents/Work/Maxim/socketIOWebRTC/socketWebRTC/CallConnectViewController.swift"
-                  timestampString = "501712450.673461"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "409"
-                  endingLineNumber = "409"
-                  offsetFromSymbolStart = "32">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "socketWebRTC.CallConnectViewController.(dropBtnPressed (Swift.AnyObject) -&gt; ()).(closure #1)"
-                  moduleName = "socketWebRTC"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jianlongjin/Documents/Work/Maxim/socketIOWebRTC/socketWebRTC/CallConnectViewController.swift"
-                  timestampString = "501712450.677898"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "409"
-                  endingLineNumber = "409"
-                  offsetFromSymbolStart = "956">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "socketWebRTC/PreCallViewController.swift"
+            timestampString = "502254248.4026"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "subnitBtnPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "socketWebRTC/PreCallViewController.swift"
+            timestampString = "502254248.4026"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "updateUserName(completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "socketWebRTC/PreCallViewController.swift"
+            timestampString = "502254248.4026"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "updateUserName(completionHandler:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

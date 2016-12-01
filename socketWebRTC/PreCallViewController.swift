@@ -19,6 +19,7 @@ class PreCallViewController: UIViewController {
     @IBOutlet weak var zipCodeLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var submitBtn: UIButton!
+    @IBOutlet weak var closeBtn: UIButton!
     @IBOutlet weak var indicatorLoading: UIActivityIndicatorView!
     
     var mobile_number : String = ""
@@ -29,12 +30,7 @@ class PreCallViewController: UIViewController {
         
         mobile_number = UserDefaults.standard.value(forKey: "mobile_number") as! String
         
-        self.submitBtn.layer.borderWidth = 1.0
-        self.submitBtn.layer.borderColor = UIColor(red: 39/255, green: 122/255, blue: 1.0, alpha: 1.0).cgColor
-        self.submitBtn.layer.cornerRadius = 5.0
-        
         initUI()
-//        getUserInfo()
         // Do any additional setup after loading the view.
     }
     
@@ -47,6 +43,13 @@ class PreCallViewController: UIViewController {
         self.stateLabel.text = userInfo["state"]
         self.zipCodeLabel.text = userInfo["zip"]
         self.phoneNumberLabel.text = mobile_number
+        self.submitBtn.layer.borderWidth = 1.0
+        self.submitBtn.layer.borderColor = UIColor(red: 39/255, green: 122/255, blue: 1.0, alpha: 1.0).cgColor
+        self.submitBtn.layer.cornerRadius = 5.0
+        
+        self.closeBtn.layer.borderWidth = 1.0
+        self.closeBtn.layer.borderColor = UIColor(red: 39/255, green: 122/255, blue: 1.0, alpha: 1.0).cgColor
+        self.closeBtn.layer.cornerRadius = 5.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,6 +74,13 @@ class PreCallViewController: UIViewController {
             }
         } catch let error {
             print("got an error creating the request: \(error)")
+            
+            let alertViewController = UIAlertController(title: "Alert", message: "This application required connection to the internet", preferredStyle: .alert)
+            let OkAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertViewController.addAction(OkAction)
+            self.present(alertViewController, animated: true, completion: nil)
+            
+            completionHandler(false)
         }
     }
     
@@ -84,5 +94,9 @@ class PreCallViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             }
         })
+    }
+    
+    @IBAction func closeBtnPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

@@ -44,6 +44,42 @@ class AddUserInfoViewController: UIViewController, UITextFieldDelegate {
     }
     
     func isAddUser( completionHandler: @escaping (_ _bool: Bool) -> ()){
+        let urlString = "http://ec2-52-24-49-20.us-west-2.compute.amazonaws.com:2017/prequal-tenants"
+        let parameters = [
+            "id" : self.mobile_number,
+            "first" : self.firstnameTextField.text!,
+            "last" : self.lastnameTextField.text!,
+            "deviceToken" : device_token,
+            "street" : self.streetTextField.text!,
+            "city" : self.cityTextField.text!,
+            "state" : self.stateTextField.text!,
+            "zip" : self.zipcodeTextField.text!
+        ]
+        
+        do {
+            let opt = try HTTP.POST(urlString, parameters: parameters, headers: nil, requestSerializer: JSONParameterSerializer())
+            opt.start { response in
+                if let err = response.error {
+                    print("isAddUserNameWithPhoneNumber ===> error: \(err.localizedDescription)")
+                    completionHandler(false)
+                } else {
+                    completionHandler(true)
+                }
+            }
+        } catch let error {
+
+            let alertViewController = UIAlertController(title: "Alert", message: "This application required connection to the internet", preferredStyle: .alert)
+            let OkAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertViewController.addAction(OkAction)
+            self.present(alertViewController, animated: true, completion: nil)
+            
+            completionHandler(false)
+
+            print("got an error creating the request: \(error)")
+        }
+    }
+    
+    func isAddUserUpdate( completionHandler: @escaping (_ _bool: Bool) -> ()){
         let urlString = "http://ec2-52-24-49-20.us-west-2.compute.amazonaws.com:2017/prequal-tenants/\(mobile_number)"
         let parameters = [
             "first" : self.firstnameTextField.text!,
@@ -56,7 +92,7 @@ class AddUserInfoViewController: UIViewController, UITextFieldDelegate {
         ]
         
         do {
-            let opt = try HTTP.POST(urlString, parameters: parameters, headers: nil, requestSerializer: JSONParameterSerializer())
+            let opt = try HTTP.PUT(urlString, parameters: parameters, headers: nil, requestSerializer: JSONParameterSerializer())
             opt.start { response in
                 if let err = response.error {
                     print("isAddUserNameWithPhoneNumber ===> error: \(err.localizedDescription)")
@@ -82,7 +118,17 @@ class AddUserInfoViewController: UIViewController, UITextFieldDelegate {
                         
                     }
                 } else {
-                    
+                    self.isAddUserUpdate(completionHandler: { (_bool1) in
+                        if _bool {
+                            DispatchQueue.main.async {
+                                let roomVC = self.storyboard?.instantiateViewController(withIdentifier: "roomVC") as! RoomViewController
+                                self.navigationController?.pushViewController(roomVC, animated: true)
+                                
+                            }
+                        } else {
+                            
+                        }
+                    })
                 }
             }
         })

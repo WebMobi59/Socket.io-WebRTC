@@ -91,6 +91,13 @@ class RoomViewController: UIViewController {
             }
         } catch let error {
             print("got an error creating the request: \(error)")
+            
+            let alertViewController = UIAlertController(title: "Alert", message: "This application required connection to the internet", preferredStyle: .alert)
+            let OkAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertViewController.addAction(OkAction)
+            self.present(alertViewController, animated: true, completion: nil)
+            
+            completionHandler(false)
         }
     }
     
