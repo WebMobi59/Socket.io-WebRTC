@@ -5,12 +5,16 @@
 
 import UIKit
 import SwiftHTTP
+import SVProgressHUD
+
 
 class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var phonenumberTextField: UITextField!
     @IBOutlet weak var submitBtn: UIButton!
+    
     let deviceToken = UserDefaults.standard.value(forKey: "deviceToken")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,6 +53,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func submitBtnClick(_ sender: AnyObject) {
         if let phonenumber = self.phonenumberTextField.text {
+            SVProgressHUD.show()
             self.isAlreadyRegistger(number: phonenumber, completionHandler: { (_state) in
                 DispatchQueue.main.async{
                     UserDefaults.standard.setValue(phonenumber, forKey: "mobile_number")
@@ -66,7 +71,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                         self.present(alertViewController, animated: true, completion: nil)
                     }
                 }
-                
+                SVProgressHUD.dismiss()
             })
         }
     }

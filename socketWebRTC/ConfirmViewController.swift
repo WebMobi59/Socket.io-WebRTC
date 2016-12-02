@@ -5,11 +5,13 @@
 
 import UIKit
 import SwiftHTTP
+import SVProgressHUD
 
 class ConfirmViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var confirmTextField: UITextField!
     @IBOutlet weak var confirmBtn: UIButton!
+
     var mobile_number : String = ""
 
     override func viewDidLoad() {
@@ -34,7 +36,7 @@ class ConfirmViewController: UIViewController, UITextFieldDelegate {
                     print(response.text!)
                     let data = response.text?.data(using: .utf8)!
                     if let parsedData = try? JSONSerialization.jsonObject(with: data!) as? [String:String] {
-                        let reason = (parsedData?["reason"])! as String
+                        let reason = (parsedData?["result"])! as String
                         if reason.contains("rejected") {
                             completionHandler(2)
                         } else {
@@ -59,6 +61,7 @@ class ConfirmViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func confirmBtnPressed(_ sender: AnyObject) {
         let activationCode = self.confirmTextField.text
+        SVProgressHUD.show()
         self.isValidActivationCode(code: activationCode! as String) { (_bool) in
             DispatchQueue.main.async {
                 if _bool == 0 { // Success
@@ -74,10 +77,13 @@ class ConfirmViewController: UIViewController, UITextFieldDelegate {
                     self.present(alertViewController, animated: true, completion: nil)
                 } else { //Rejected
                     let alertViewController = UIAlertController(title: "Alert", message: "The Activation Code you entered is incorrect. Please check the code and try again", preferredStyle: .alert)
-                    let OkAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    let OkAction = UIAlertAction(title: "OK", style: .default, handler: { (ok) in
+
+                    })
                     alertViewController.addAction(OkAction)
                     self.present(alertViewController, animated: true, completion: nil)
                 }
+                SVProgressHUD.dismiss()
             }
         }
     }

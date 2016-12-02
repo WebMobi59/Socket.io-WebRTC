@@ -51,21 +51,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // init application badge number
         application.applicationIconBadgeNumber = 0;
         
-        
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        var initialViewController: UIViewController
-        if((UserDefaults.standard.value(forKey: "deviceToken")) != nil) //your condition if user is already logged in or not
-        {
-            // if already logged in then redirect to RoomViewController
-            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "roomNavVC") as! UINavigationController // 'RoomViewController' is the storyboard id of RoomViewController
-        } else {
-            //If not logged in then show RegisterViewController
-            initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "navRootVC") as! UINavigationController // 'RegisterViewController' is the storyboard id of RegisterViewController
+        DispatchQueue.main.async {
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            var initialViewController: UIViewController
+            if((UserDefaults.standard.value(forKey: "deviceToken")) != nil) //your condition if user is already logged in or not
+            {
+                // if already logged in then redirect to RoomViewController
+                initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "roomNavVC") as! UINavigationController // 'RoomViewController' is the storyboard id of RoomViewController
+            } else {
+                //If not logged in then show RegisterViewController
+                initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "navRootVC") as! UINavigationController // 'RegisterViewController' is the storyboard id of RegisterViewController
+            }
+            
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
         }
-        
-        self.window?.rootViewController = initialViewController
-        self.window?.makeKeyAndVisible()
         
         IQKeyboardManager.sharedManager().enable = true
         

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0810"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F6C9B6B0E7B53BC05A5795D70DC272C3"
+               BlueprintIdentifier = "D2C5AC9FA2E9C7E49E1C54FE8B8DDB0B"
                BuildableName = "Pods_socketWebRTC.framework"
                BlueprintName = "Pods-socketWebRTC"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F6C9B6B0E7B53BC05A5795D70DC272C3"
+            BlueprintIdentifier = "D2C5AC9FA2E9C7E49E1C54FE8B8DDB0B"
             BuildableName = "Pods_socketWebRTC.framework"
             BlueprintName = "Pods-socketWebRTC"
             ReferencedContainer = "container:Pods.xcodeproj">

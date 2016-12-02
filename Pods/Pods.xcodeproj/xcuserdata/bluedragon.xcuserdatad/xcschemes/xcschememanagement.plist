@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SVProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Socket.IO-Client-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,6 +52,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0558C570F06D7E5A5887E5B2D2762685</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3CB17C6B6D5F08F6B3350CCEC6B1E0F6</key>
 		<dict>
 			<key>primary</key>
@@ -62,22 +72,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B260FF84981F75A2AD79FB50FBE6FF76</key>
+		<key>73683F45C264C67FC8B49D75763E2E60</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C30488D0CF3A7F11CD47499E5A4A476D</key>
+		<key>8836DB6381C7BA640255E7701858783D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6C8E444575114CFC070DCA09FFC67FB</key>
+		<key>D1068908FFBA55D9A65DCF4DE0332DF0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F6C9B6B0E7B53BC05A5795D70DC272C3</key>
+		<key>D2C5AC9FA2E9C7E49E1C54FE8B8DDB0B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

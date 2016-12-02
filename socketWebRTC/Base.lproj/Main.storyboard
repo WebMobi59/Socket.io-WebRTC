@@ -11,24 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="4wH-61-HH3">
-            <objects>
-                <viewController storyboardIdentifier="rtcVC" id="mGF-YC-DqK" customClass="RTCViewController" customModule="socketWebRTC" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9IW-IQ-0CI"/>
-                        <viewControllerLayoutGuide type="bottom" id="W8L-7G-e10"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1xy-3m-PLR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ic-bE-swA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-417" y="1179"/>
-        </scene>
         <!--Login-->
         <scene sceneID="b6u-YG-eKm">
             <objects>
@@ -560,8 +542,8 @@ with the provided address</string>
                                 <color key="textColor" red="0.91097431279999996" green="0.52441892629999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Riverstone Ave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecI-bX-wcp">
-                                <rect key="frame" x="142" y="109.5" width="162" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecI-bX-wcp">
+                                <rect key="frame" x="142" y="120" width="33" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.91097431279999996" green="0.52441892629999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -576,8 +558,8 @@ with the provided address</string>
                                 <color key="textColor" red="0.91097431279999996" green="0.52441892629999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6z3-l6-CpJ">
-                                <rect key="frame" x="142" y="139.5" width="162" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6z3-l6-CpJ">
+                                <rect key="frame" x="142" y="150" width="33" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.91097431279999996" green="0.52441892629999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -591,8 +573,8 @@ with the provided address</string>
                                 <color key="textColor" red="0.91097431279999996" green="0.52441892629999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Linwood" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKK-yA-yoc">
-                                <rect key="frame" x="142" y="169.5" width="162" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKK-yA-yoc">
+                                <rect key="frame" x="142" y="180" width="33" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.91097431279999996" green="0.52441892629999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -603,8 +585,8 @@ with the provided address</string>
                                 <color key="textColor" red="0.91097431279999996" green="0.52441892629999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ke6-Ly-Gx7">
-                                <rect key="frame" x="142" y="200" width="162" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ke6-Ly-Gx7">
+                                <rect key="frame" x="142" y="210.5" width="33" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.91097431279999996" green="0.52441892629999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -615,8 +597,8 @@ with the provided address</string>
                                 <color key="textColor" red="0.91097431279999996" green="0.52441892629999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30475" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfY-4u-kcp">
-                                <rect key="frame" x="142" y="231" width="162" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfY-4u-kcp">
+                                <rect key="frame" x="142" y="241.5" width="33" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.91097431279999996" green="0.52441892629999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -627,8 +609,8 @@ with the provided address</string>
                                 <color key="textColor" red="0.91097431279999996" green="0.52441892629999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1-826-334-9268" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vrf-ze-cko">
-                                <rect key="frame" x="158" y="279" width="129" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vrf-ze-cko">
+                                <rect key="frame" x="158" y="288" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.91097431279999996" green="0.52441892629999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -663,9 +645,6 @@ with the provided address</string>
                                     <action selector="subnitBtnPressed:" destination="J29-cv-0fY" eventType="touchUpInside" id="Le7-h1-qrd"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Sxg-h4-boQ">
-                                <rect key="frame" x="22" y="330" width="20" height="20"/>
-                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vfx-u0-t8E">
                                 <rect key="frame" x="170" y="325" width="80" height="30"/>
                                 <constraints>
@@ -717,13 +696,11 @@ with the provided address</string>
                             <constraint firstItem="Ke6-Ly-Gx7" firstAttribute="leading" secondItem="pKK-yA-yoc" secondAttribute="leading" id="cad-pv-yoa"/>
                             <constraint firstItem="YT5-ey-jg8" firstAttribute="top" secondItem="9sR-mV-CNj" secondAttribute="bottom" constant="10" id="dHW-31-pwV"/>
                             <constraint firstItem="1aw-pe-qDb" firstAttribute="top" secondItem="YT5-ey-jg8" secondAttribute="bottom" constant="27" id="dOB-g4-1rw"/>
-                            <constraint firstItem="Sxg-h4-boQ" firstAttribute="centerY" secondItem="VmK-Aj-SDK" secondAttribute="centerY" id="dzM-em-tO7"/>
                             <constraint firstItem="6rN-pO-qaU" firstAttribute="leading" secondItem="RKB-hV-sHY" secondAttribute="leading" id="fuP-ns-ZxA"/>
                             <constraint firstItem="qCL-ma-PZr" firstAttribute="top" secondItem="VmK-Aj-SDK" secondAttribute="bottom" constant="45" id="hs5-HL-Aw1"/>
                             <constraint firstItem="6z3-l6-CpJ" firstAttribute="centerY" secondItem="JTV-MR-Grq" secondAttribute="centerY" id="inQ-As-mp3"/>
                             <constraint firstItem="kPV-md-UxN" firstAttribute="width" secondItem="fv2-DN-nzr" secondAttribute="width" id="kUq-xc-WWG"/>
                             <constraint firstItem="ecI-bX-wcp" firstAttribute="centerY" secondItem="OFa-gZ-dSI" secondAttribute="centerY" id="kzz-ox-hMI"/>
-                            <constraint firstItem="VmK-Aj-SDK" firstAttribute="leading" secondItem="Sxg-h4-boQ" secondAttribute="trailing" constant="8" id="nOn-Dh-RIU"/>
                             <constraint firstItem="6rN-pO-qaU" firstAttribute="trailing" secondItem="RKB-hV-sHY" secondAttribute="trailing" id="ncl-tp-CtH"/>
                             <constraint firstItem="fv2-DN-nzr" firstAttribute="width" secondItem="JTV-MR-Grq" secondAttribute="width" id="pOD-MV-gia"/>
                             <constraint firstItem="pKK-yA-yoc" firstAttribute="trailing" secondItem="6z3-l6-CpJ" secondAttribute="trailing" id="sZ6-SR-r5f"/>
@@ -738,7 +715,6 @@ with the provided address</string>
                         <outlet property="cityLabel" destination="pKK-yA-yoc" id="1Nm-Iv-ziC"/>
                         <outlet property="closeBtn" destination="Vfx-u0-t8E" id="HMv-7N-VwX"/>
                         <outlet property="firstNameTextField" destination="RKB-hV-sHY" id="phN-PH-DxZ"/>
-                        <outlet property="indicatorLoading" destination="Sxg-h4-boQ" id="uLP-re-PjO"/>
                         <outlet property="lastNameTextField" destination="6rN-pO-qaU" id="b46-SH-nla"/>
                         <outlet property="phoneNumberLabel" destination="Vrf-ze-cko" id="1oa-sJ-dLM"/>
                         <outlet property="stateLabel" destination="Ke6-Ly-Gx7" id="YdG-1C-zvR"/>
@@ -914,40 +890,6 @@ with the provided address</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lBM-r9-1oE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2941.5999999999999" y="415.14242878560725"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="socketWebRTC" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPH-Ct-eft">
-                                <rect key="frame" x="0.0" y="36" width="375" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="fPH-Ct-eft" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="QPX-T9-oum"/>
-                            <constraint firstItem="fPH-Ct-eft" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="roP-tM-7eD"/>
-                            <constraint firstItem="fPH-Ct-eft" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="zGg-qj-Wfb"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="connectionStatusLabel" destination="fPH-Ct-eft" id="CpC-jW-gLH"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-416" y="422"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="o73-gN-oAa">

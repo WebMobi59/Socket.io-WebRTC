@@ -10,5 +10,6 @@ target 'socketWebRTC' do
     pod 'CameraManager', '~> 3.0'
     pod 'SwiftMessageBar'
     pod 'MZFormSheetPresentationController'
+    pod 'SVProgressHUD'
 end
 

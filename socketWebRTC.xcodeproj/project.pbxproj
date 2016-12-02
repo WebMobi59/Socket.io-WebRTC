@@ -14,6 +14,7 @@
 		6D7831321DA35DCE00A62AB2 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7831311DA35DCE00A62AB2 /* ConfirmViewController.swift */; };
 		6D7831341DA3727200A62AB2 /* AddUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7831331DA3727200A62AB2 /* AddUserInfoViewController.swift */; };
 		6DBBC8F91DA74E6F00FE7A72 /* PreCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBBC8F81DA74E6F00FE7A72 /* PreCallViewController.swift */; };
+		BF0FCA5F1DF0D2010027BEC4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0FCA5E1DF0D2010027BEC4 /* User.swift */; };
 		C48D07C81CD0FBD30023DDAA /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D07C71CD0FBD30023DDAA /* SocketIOManager.swift */; };
 		C4C0CA441CCAFE9700397F0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C0CA431CCAFE9700397F0C /* AppDelegate.swift */; };
 		C4C0CA461CCAFE9700397F0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C0CA451CCAFE9700397F0C /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 		6D7831331DA3727200A62AB2 /* AddUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserInfoViewController.swift; sourceTree = "<group>"; };
 		6DBBC8F81DA74E6F00FE7A72 /* PreCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreCallViewController.swift; sourceTree = "<group>"; };
 		7FB2772C44216D1E291948D5 /* Pods_socketWebRTC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_socketWebRTC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF0FCA5E1DF0D2010027BEC4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
 		C48D07C71CD0FBD30023DDAA /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
 		C4C0CA401CCAFE9700397F0C /* socketWebRTC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socketWebRTC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4C0CA431CCAFE9700397F0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BF55FD411DF0C96D0025A8AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF0FCA5E1DF0D2010027BEC4 /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		C4C0CA371CCAFE9700397F0C = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +119,7 @@
 				6D7831331DA3727200A62AB2 /* AddUserInfoViewController.swift */,
 				6D75770C1DA57EAC009EA557 /* CallConnectViewController.swift */,
 				6DBBC8F81DA74E6F00FE7A72 /* PreCallViewController.swift */,
+				BF55FD411DF0C96D0025A8AF /* Model */,
 			);
 			path = socketWebRTC;
 			sourceTree = "<group>";
@@ -152,7 +163,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Vincent Villalta";
 				TargetAttributes = {
 					C4C0CA3F1CCAFE9700397F0C = {
@@ -211,7 +222,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		9BBA7A98E5DEFFE154F7C991 /* [CP] Copy Pods Resources */ = {
@@ -260,6 +271,7 @@
 				6D7577111DA69093009EA557 /* RoomViewController.swift in Sources */,
 				C4C0CA441CCAFE9700397F0C /* AppDelegate.swift in Sources */,
 				6D75770D1DA57EAC009EA557 /* CallConnectViewController.swift in Sources */,
+				BF0FCA5F1DF0D2010027BEC4 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,8 +311,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Tal Shalom (TN8HS33F79)";
@@ -347,8 +361,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Tal Shalom (TN8HS33F79)";
@@ -369,6 +385,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "77fbdb65-de7f-48ed-aa0a-4f665fde8a80";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -378,6 +395,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C8B0D5E201340E0C7BAEBF09 /* Pods-socketWebRTC.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = socketWebRTC/socketWebRTC.entitlements;
@@ -401,6 +419,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A979DDD9997FBBF8044FAF8 /* Pods-socketWebRTC.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = socketWebRTC/socketWebRTC.entitlements;

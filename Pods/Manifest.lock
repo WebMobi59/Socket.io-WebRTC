@@ -6,6 +6,7 @@ PODS:
   - MZFormSheetPresentationController (2.4.2):
     - MZAppearance
   - Socket.IO-Client-Swift (8.0.2)
+  - SVProgressHUD (2.0.3)
   - SwiftHTTP (2.0.0)
   - SwiftMessageBar (3.0.0)
 
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - libjingle_peerconnection
   - MZFormSheetPresentationController
   - Socket.IO-Client-Swift (~> 8.0.2)
+  - SVProgressHUD
   - SwiftHTTP (~> 2.0.0)
   - SwiftMessageBar
 
@@ -25,9 +27,10 @@ SPEC CHECKSUMS:
   MZAppearance: 0c06d3fa9cc55142f1da14bc8631fbe8fd6e19d5
   MZFormSheetPresentationController: c1dc3bce639d2393b3cc416fcb6e050eb5bca062
   Socket.IO-Client-Swift: 136598e4a81a42b0e6855e7f94a0e5a6efdc5ff8
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   SwiftHTTP: 55a6f10e9952819ff728a3d9d1fa52ba3d266dba
   SwiftMessageBar: 38199a6fcf91893263c3a5f45a1e93440d2c6b6a
 
-PODFILE CHECKSUM: 777ea4c9678630a9020741a14a3331cc14b347a2
+PODFILE CHECKSUM: 4eb9b0d214a776cfc38aecd740b4c0371af52f53
 
 COCOAPODS: 1.1.1
