@@ -111,15 +111,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let alert_message = aps!["alert"] as? String
         
         if let rtcConnectionKey = userInfo["rtcConnectionKey"] as? String {
-            uuid = SwiftMessageBar.showMessageWithTitle("Incoming Call", message: alert_message, type: .success, duration: 3, dismiss: false, callback: {
+            if UIApplication.shared.applicationState == UIApplicationState.active {
+                uuid = SwiftMessageBar.showMessageWithTitle("Incoming Call", message: alert_message, type: .success, duration: 3, dismiss: false, callback: {
+                    print(rtcConnectionKey)
+                    self.roomId = rtcConnectionKey
+                    UserDefaults.standard.setValue(true, forKey: "fromAPNS")
+                    UserDefaults.standard.synchronize()
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "roomNavVC") as! UINavigationController
+                    self.window?.rootViewController = vc
+                    
+                    let roomVC = storyboard.instantiateViewController(withIdentifier: "callConnectVC")
+                    vc.pushViewController(roomVC, animated: true)
+                })
+            } else {
                 print(rtcConnectionKey)
                 self.roomId = rtcConnectionKey
                 UserDefaults.standard.setValue(true, forKey: "fromAPNS")
                 UserDefaults.standard.synchronize()
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "callConnectVC")
+                let vc = storyboard.instantiateViewController(withIdentifier: "roomNavVC") as! UINavigationController
                 self.window?.rootViewController = vc
-            })
+                
+                let roomVC = storyboard.instantiateViewController(withIdentifier: "callConnectVC")
+                vc.pushViewController(roomVC, animated: true)
+            }
         } else {
             uuid = SwiftMessageBar.showMessageWithTitle(nil, message: alert_message, type: .success, duration: 3, dismiss: false, callback: {
                 print("Got APNS")

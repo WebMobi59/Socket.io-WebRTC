@@ -753,16 +753,17 @@ with the provided address</string>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5OR-Li-DWZ">
                                 <rect key="frame" x="243" y="556" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="VTn-Ma-o4N"/>
                                     <constraint firstAttribute="height" constant="50" id="oNg-8p-av6"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="call_mute"/>
+                                <state key="normal" backgroundImage="un_mute"/>
                                 <connections>
                                     <action selector="muteBtnPressed:" destination="Ozg-qN-89C" eventType="touchUpInside" id="Bdb-bN-Ekq"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PQ9-ZN-7To" customClass="RTCEAGLVideoView">
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="PQ9-ZN-7To" customClass="RTCEAGLVideoView">
                                 <rect key="frame" x="10" y="156" width="355" height="355"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -930,8 +931,8 @@ with the provided address</string>
     </scenes>
     <resources>
         <image name="call_drop" width="16" height="16"/>
-        <image name="call_mute" width="16" height="16"/>
         <image name="information" width="16" height="16"/>
         <image name="room" width="16" height="16"/>
+        <image name="un_mute" width="16" height="16"/>
     </resources>
 </document>

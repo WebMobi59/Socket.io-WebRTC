@@ -47,6 +47,11 @@ class CallConnectViewController: UIViewController, RTCSessionDescriptionDelegate
         mediaStream = peerConnectionFactory.mediaStream(withLabel: LOCAL_MEDIA_STREAM_ID)
         mediaStream.addAudioTrack(localAudioTrack)
         
+//        self.localViewBottomConstraint?.constant=0.0
+//        self.localViewRightConstraint?.constant=0.0
+//        self.localViewHeightConstraint?.constant=self.view.frame.size.height
+//        self.localViewWidthConstraint?.constant=self.view.frame.size.width
+        
         let isfromAPNS = UserDefaults.standard.value(forKey: "fromAPNS") as! Bool
         if isfromAPNS {
             self.sigConnect(SocketIOManager.sharedInstance.socket.socketURL.absoluteString)
@@ -62,6 +67,7 @@ class CallConnectViewController: UIViewController, RTCSessionDescriptionDelegate
         remoteUserView.setNeedsLayout()
         remoteUserView.layer.cornerRadius = remoteUserView.frame.size.width/2
         remoteUserView.clipsToBounds  = true
+        remoteUserView.contentMode = .scaleAspectFit
         
         openBtn.layoutIfNeeded()
         openBtn.setNeedsLayout()
@@ -94,7 +100,7 @@ class CallConnectViewController: UIViewController, RTCSessionDescriptionDelegate
     }
     
     func getRoomName() -> String {
-        return (roomName == nil || roomName.isEmpty) ? "12345": roomName
+        return (roomName == nil || roomName.isEmpty) ? "1111": "1111"
     }
     
     var peerConnectionFactory: RTCPeerConnectionFactory! = nil
@@ -406,8 +412,7 @@ class CallConnectViewController: UIViewController, RTCSessionDescriptionDelegate
     @IBAction func dropBtnPressed(_ sender: AnyObject) {
         self.hangUp()
         DispatchQueue.main.async {
-            let roomVC = self.storyboard?.instantiateViewController(withIdentifier: "roomVC") as! RoomViewController
-            self.navigationController?.pushViewController(roomVC, animated: true)
+            _ = self.navigationController?.popViewController(animated: true)
         }
     }
     
@@ -416,23 +421,14 @@ class CallConnectViewController: UIViewController, RTCSessionDescriptionDelegate
             if peerStarted {
                 self.localAudioTrack.setEnabled(false)
                 isMute = true
+                self.muteBtn.setImage(UIImage(named: "call_mute.png"), for: .normal)
             }
         } else { //Otherwise
             if peerStarted {
                 localAudioTrack.setEnabled(true)
+                self.muteBtn.setImage(UIImage(named: "un_mute.png"), for: .normal)
                 isMute = false
             }
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
