@@ -22,6 +22,16 @@ class RoomViewController: UIViewController {
         super.viewDidLoad()
         roomBtn.bringSubview(toFront: originalView)
         
+        _user = User();
+        _user?.apt = "";
+        _user?.city = "";
+        _user?.first = "";
+        _user?.last = "";
+        _user?.zip = "";
+        _user?.street = "";
+        _user?.state = "";
+        
+        
         mobile_number = UserDefaults.standard.value(forKey: "mobile_number") as! String
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -45,8 +55,7 @@ class RoomViewController: UIViewController {
                         UserDefaults.standard.setValue(self.device_token, forKey: "deviceToken")
                         UserDefaults.standard.synchronize()
                         
-                        
-                            self.getUserInfomation()
+                        self.getUserInfomation()
                         
                     } else {
                         //do something in the case which got error
@@ -149,34 +158,35 @@ class RoomViewController: UIViewController {
                     let data = response.text?.data(using: .utf8)!
                     if let parsedData = try? JSONSerialization.jsonObject(with: data!) as! [String:Any] {
                         if let userDataArr = parsedData["apartments"] as? [Any] {
-                            if let userData = userDataArr[0] as? [String: Any] {
-                                let tmpUser = User()
-                                if let first = userData["first"] as? String {
-                                    tmpUser.first = first
+                            if userDataArr.count > 0 {
+                                if let userData = userDataArr[0] as? [String: Any] {
+                                    let tmpUser = User()
+                                    if let first = userData["first"] as? String {
+                                        tmpUser.first = first
+                                    }
+                                    
+                                    if let last = userData["last"] as? String {
+                                        tmpUser.last = last
+                                    }
+                                    
+                                    if let apt = userData["apt"] as? String {
+                                        tmpUser.apt = apt
+                                    }
+                                    
+                                    if let street = userData["street"] as? String {
+                                        tmpUser.street = street
+                                    }
+                                    
+                                    if let zip = userData["zip"] as? String {
+                                        tmpUser.zip = zip
+                                    }
+                                    
+                                    if let state = userData["state"] as? String {
+                                        tmpUser.state = state
+                                    }
+                                    
+                                    self._user = tmpUser
                                 }
-                                
-                                if let last = userData["last"] as? String {
-                                    tmpUser.last = last
-                                }
-                                
-                                if let apt = userData["apt"] as? String {
-                                    tmpUser.apt = apt
-                                }
-                                
-                                if let street = userData["street"] as? String {
-                                    tmpUser.street = street
-                                }
-                                
-                                if let zip = userData["zip"] as? String {
-                                    tmpUser.zip = zip
-                                }
-                                
-                                
-                                if let state = userData["state"] as? String {
-                                    tmpUser.state = state
-                                }
-                                
-                                self._user = tmpUser
                             }
                         }
                     }
@@ -202,35 +212,35 @@ class RoomViewController: UIViewController {
                     let data = response.text?.data(using: .utf8)!
                     if let parsedData = try? JSONSerialization.jsonObject(with: data!) as! [String:Any] {
                         if let userDataArr = parsedData["apartments"] as? [Any] {
-                            if let userData = userDataArr[0] as? [String: Any] {
-                                let tmpUser = User()
-                                if let first = userData["first"] as? String {
-                                    tmpUser.first = first
+                            if userDataArr.count > 0 {
+                                if let userData = userDataArr[0] as? [String: Any] {
+                                    let tmpUser = User()
+                                    if let first = userData["first"] as? String {
+                                        tmpUser.first = first
+                                    }
+                                    
+                                    if let last = userData["last"] as? String {
+                                        tmpUser.last = last
+                                    }
+                                    
+                                    if let apt = userData["apt"] as? String {
+                                        tmpUser.apt = apt
+                                    }
+                                    
+                                    if let street = userData["street"] as? String {
+                                        tmpUser.street = street
+                                    }
+                                    
+                                    if let zip = userData["zip"] as? String {
+                                        tmpUser.zip = zip
+                                    }
+                                    
+                                    if let state = userData["state"] as? String {
+                                        tmpUser.state = state
+                                    }
+                                    
+                                    self._user = tmpUser
                                 }
-                                
-                                if let last = userData["last"] as? String {
-                                    tmpUser.last = last
-                                }
-                                
-                                if let apt = userData["apt"] as? String {
-                                    tmpUser.apt = apt
-                                }
-                                
-                                if let street = userData["street"] as? String {
-                                    tmpUser.street = street
-                                }
-                                
-                                if let zip = userData["zip"] as? String {
-                                    tmpUser.zip = zip
-                                }
-                                
-                                
-                                if let state = userData["state"] as? String {
-                                    tmpUser.state = state
-                                }
-                                
-                                self._user = tmpUser
-                                
                             }
                         }
                     }

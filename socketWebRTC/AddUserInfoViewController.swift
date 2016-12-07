@@ -115,15 +115,13 @@ class AddUserInfoViewController: UIViewController, UITextFieldDelegate {
                     DispatchQueue.main.async {
                         let roomVC = self.storyboard?.instantiateViewController(withIdentifier: "roomVC") as! RoomViewController
                         self.navigationController?.pushViewController(roomVC, animated: true)
-                        
                     }
                 } else {
                     self.isAddUserUpdate(completionHandler: { (_bool1) in
-                        if _bool {
+                        if _bool1 {
                             DispatchQueue.main.async {
                                 let roomVC = self.storyboard?.instantiateViewController(withIdentifier: "roomVC") as! RoomViewController
                                 self.navigationController?.pushViewController(roomVC, animated: true)
-                                
                             }
                         } else {
                             
@@ -162,14 +160,5 @@ class AddUserInfoViewController: UIViewController, UITextFieldDelegate {
         }
         return true
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
