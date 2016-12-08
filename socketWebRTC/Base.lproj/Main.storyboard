@@ -741,7 +741,7 @@ with the provided address</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ut-QS-Q3o">
-                                <rect key="frame" x="83" y="556" width="50" height="50"/>
+                                <rect key="frame" x="83" y="562.5" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="cnu-8T-ff5"/>
                                     <constraint firstAttribute="height" constant="50" id="eCo-Ep-KOG"/>
@@ -752,7 +752,7 @@ with the provided address</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5OR-Li-DWZ">
-                                <rect key="frame" x="243" y="556" width="50" height="50"/>
+                                <rect key="frame" x="243" y="562.5" width="50" height="50"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="VTn-Ma-o4N"/>
@@ -763,15 +763,16 @@ with the provided address</string>
                                     <action selector="muteBtnPressed:" destination="Ozg-qN-89C" eventType="touchUpInside" id="Bdb-bN-Ekq"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="PQ9-ZN-7To" customClass="RTCEAGLVideoView">
-                                <rect key="frame" x="10" y="156" width="355" height="355"/>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="PQ9-ZN-7To" customClass="RTCEAGLVideoView">
+                                <rect key="frame" x="-62.5" y="146" width="500" height="375"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="PQ9-ZN-7To" secondAttribute="height" multiplier="1:1" id="fia-eD-M1w"/>
+                                    <constraint firstAttribute="width" constant="500" id="R7l-vo-4eF"/>
+                                    <constraint firstAttribute="width" secondItem="PQ9-ZN-7To" secondAttribute="height" multiplier="4:3" id="fia-eD-M1w"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g57-n8-VaB">
-                                <rect key="frame" x="147.5" y="541" width="80" height="80"/>
+                                <rect key="frame" x="147.5" y="547.5" width="80" height="80"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="FS5-Mb-OzN"/>
@@ -785,16 +786,25 @@ with the provided address</string>
                                     <action selector="openBtnPressed:" destination="Ozg-qN-89C" eventType="touchUpInside" id="Y8m-6H-eQ3"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bix-FJ-HmE">
+                                <rect key="frame" x="3" y="148.5" width="369" height="369"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Bix-FJ-HmE" secondAttribute="height" multiplier="1:1" id="hZV-ol-ENt"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.95259325920000004" green="0.79086836999999999" blue="0.19878894259999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Bix-FJ-HmE" secondAttribute="trailing" constant="3" id="AUD-Dd-k7c"/>
                             <constraint firstItem="5OR-Li-DWZ" firstAttribute="leading" secondItem="g57-n8-VaB" secondAttribute="trailing" constant="15.5" id="D3Z-pd-yqQ"/>
-                            <constraint firstItem="g57-n8-VaB" firstAttribute="top" secondItem="PQ9-ZN-7To" secondAttribute="bottom" constant="30" id="Fh8-YT-xh2"/>
+                            <constraint firstItem="Bix-FJ-HmE" firstAttribute="centerX" secondItem="2uB-Zg-hs2" secondAttribute="centerX" id="DaI-jo-WCX"/>
                             <constraint firstItem="2Ut-QS-Q3o" firstAttribute="centerY" secondItem="g57-n8-VaB" secondAttribute="centerY" id="Ia9-ly-5Sl"/>
-                            <constraint firstAttribute="trailing" secondItem="PQ9-ZN-7To" secondAttribute="trailing" constant="10" id="Msy-ad-PTa"/>
-                            <constraint firstItem="PQ9-ZN-7To" firstAttribute="leading" secondItem="2uB-Zg-hs2" secondAttribute="leading" constant="10" id="OtU-qi-Jxj"/>
+                            <constraint firstItem="Bix-FJ-HmE" firstAttribute="leading" secondItem="2uB-Zg-hs2" secondAttribute="leading" constant="3" id="JSq-ry-lOK"/>
+                            <constraint firstItem="Bix-FJ-HmE" firstAttribute="centerY" secondItem="2uB-Zg-hs2" secondAttribute="centerY" id="Mvn-f3-x70"/>
                             <constraint firstItem="g57-n8-VaB" firstAttribute="centerX" secondItem="2uB-Zg-hs2" secondAttribute="centerX" id="TNw-KC-K8L"/>
                             <constraint firstItem="g57-n8-VaB" firstAttribute="leading" secondItem="2Ut-QS-Q3o" secondAttribute="trailing" constant="14.5" id="U6A-OY-zao"/>
+                            <constraint firstItem="g57-n8-VaB" firstAttribute="top" secondItem="Bix-FJ-HmE" secondAttribute="bottom" constant="30" id="Vcn-Du-qpH"/>
                             <constraint firstItem="PQ9-ZN-7To" firstAttribute="centerX" secondItem="2uB-Zg-hs2" secondAttribute="centerX" id="bzt-yv-AWw"/>
                             <constraint firstItem="5OR-Li-DWZ" firstAttribute="centerY" secondItem="g57-n8-VaB" secondAttribute="centerY" id="jh1-X9-tlc"/>
                             <constraint firstItem="PQ9-ZN-7To" firstAttribute="centerY" secondItem="2uB-Zg-hs2" secondAttribute="centerY" id="lnc-Bk-id0"/>
@@ -806,6 +816,7 @@ with the provided address</string>
                         <outlet property="muteBtn" destination="5OR-Li-DWZ" id="XG8-bF-KHH"/>
                         <outlet property="openBtn" destination="g57-n8-VaB" id="cOF-le-ua5"/>
                         <outlet property="remoteUserView" destination="PQ9-ZN-7To" id="Hsc-RB-jFS"/>
+                        <outlet property="remoteview_mask" destination="Bix-FJ-HmE" id="35M-Ld-e9F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Buo-5Q-yvE" userLabel="First Responder" sceneMemberID="firstResponder"/>

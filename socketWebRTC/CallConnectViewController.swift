@@ -14,6 +14,7 @@ let LOCAL_MEDIA_STREAM_ID = TAG + "STREAM"
 
 class CallConnectViewController: UIViewController, RTCSessionDescriptionDelegate, RTCPeerConnectionDelegate, RTCEAGLVideoViewDelegate {
 
+    @IBOutlet weak var remoteview_mask: UIView!
     @IBOutlet weak var openBtn: UIButton!
     @IBOutlet weak var dropBtn: UIButton!
     @IBOutlet weak var muteBtn: UIButton!
@@ -47,11 +48,6 @@ class CallConnectViewController: UIViewController, RTCSessionDescriptionDelegate
         mediaStream = peerConnectionFactory.mediaStream(withLabel: LOCAL_MEDIA_STREAM_ID)
         mediaStream.addAudioTrack(localAudioTrack)
         
-//        self.localViewBottomConstraint?.constant=0.0
-//        self.localViewRightConstraint?.constant=0.0
-//        self.localViewHeightConstraint?.constant=self.view.frame.size.height
-//        self.localViewWidthConstraint?.constant=self.view.frame.size.width
-        
         let isfromAPNS = UserDefaults.standard.value(forKey: "fromAPNS") as! Bool
         if isfromAPNS {
             self.sigConnect(SocketIOManager.sharedInstance.socket.socketURL.absoluteString)
@@ -63,11 +59,12 @@ class CallConnectViewController: UIViewController, RTCSessionDescriptionDelegate
     }
     
     func initComponents() {
-        remoteUserView.layoutIfNeeded()
-        remoteUserView.setNeedsLayout()
-        remoteUserView.layer.cornerRadius = remoteUserView.frame.size.width/2
-        remoteUserView.clipsToBounds  = true
-        remoteUserView.contentMode = .scaleAspectFit
+        remoteview_mask.layoutIfNeeded()
+        remoteview_mask.setNeedsLayout()
+        remoteview_mask.layer.cornerRadius = remoteview_mask.frame.size.width/2
+        remoteview_mask.addSubview(remoteUserView)
+        remoteview_mask.clipsToBounds  = true
+//        remoteUserView.contentMode = .scaleAspectFit
         
         openBtn.layoutIfNeeded()
         openBtn.setNeedsLayout()

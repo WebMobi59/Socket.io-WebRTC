@@ -35,39 +35,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UserDefaults.standard.synchronize()
         
         // parsing notification data
-        let socket = SocketIOManager.sharedInstance.socket
         if let launchOptions = launchOptions {
-            let userInfo = launchOptions[UIApplicationLaunchOptionsKey.remoteNotification] as? [AnyHashable: Any]
-            _ = userInfo!["aps"] as? [AnyHashable: Any]
-            _ = userInfo!["message"] as? String
-            _ = userInfo!["param"] as? String
-            if (socket.status == .notConnected || socket.status == .disconnected ){
-                
-            }else{
-                
-            }
-        }
-        
-        // init application badge number
-        application.applicationIconBadgeNumber = 0;
-        
-        DispatchQueue.main.async {
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            var initialViewController: UIViewController
-            if((UserDefaults.standard.value(forKey: "deviceToken")) != nil) //your condition if user is already logged in or not
-            {
-                // if already logged in then redirect to RoomViewController
-                initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "roomNavVC") as! UINavigationController // 'RoomViewController' is the storyboard id of RoomViewController
+            if let userInfo = launchOptions[UIApplicationLaunchOptionsKey.remoteNotification] as? [AnyHashable: Any] {
+               self.application(application, didReceiveRemoteNotification: userInfo)
             } else {
-                //If not logged in then show RegisterViewController
-                initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "navRootVC") as! UINavigationController // 'RegisterViewController' is the storyboard id of RegisterViewController
+                
             }
-            
-            self.window?.rootViewController = initialViewController
-            self.window?.makeKeyAndVisible()
+        } else {
+            DispatchQueue.main.async {
+                self.window = UIWindow(frame: UIScreen.main.bounds)
+                let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                var initialViewController: UIViewController
+                if((UserDefaults.standard.value(forKey: "deviceToken")) != nil) //your condition if user is already logged in or not
+                {
+                    // if already logged in then redirect to RoomViewController
+                    initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "roomNavVC") as! UINavigationController // 'RoomViewController' is the storyboard id of RoomViewController
+                } else {
+                    //If not logged in then show RegisterViewController
+                    initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "navRootVC") as! UINavigationController // 'RegisterViewController' is the storyboard id of RegisterViewController
+                }
+                
+                self.window?.rootViewController = initialViewController
+                self.window?.makeKeyAndVisible()
+            }
         }
-        
         IQKeyboardManager.sharedManager().enable = true
         
         return true
@@ -94,13 +85,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
         g_deviceToken = token
-//        UserDefaults.standard.setValue(g_deviceToken, forKey: "deviceToken")
-//        UserDefaults.standard.synchronize()
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
