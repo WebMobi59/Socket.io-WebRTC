@@ -35,7 +35,7 @@
 		7FB2772C44216D1E291948D5 /* Pods_socketWebRTC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_socketWebRTC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF0FCA5E1DF0D2010027BEC4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
 		C48D07C71CD0FBD30023DDAA /* SocketIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
-		C4C0CA401CCAFE9700397F0C /* socketWebRTC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socketWebRTC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4C0CA401CCAFE9700397F0C /* EntryView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EntryView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4C0CA431CCAFE9700397F0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4C0CA451CCAFE9700397F0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C4C0CA481CCAFE9700397F0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 		C4C0CA411CCAFE9700397F0C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C4C0CA401CCAFE9700397F0C /* socketWebRTC.app */,
+				C4C0CA401CCAFE9700397F0C /* EntryView.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,9 +136,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C4C0CA3F1CCAFE9700397F0C /* socketWebRTC */ = {
+		C4C0CA3F1CCAFE9700397F0C /* EntryView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C4C0CA521CCAFE9700397F0C /* Build configuration list for PBXNativeTarget "socketWebRTC" */;
+			buildConfigurationList = C4C0CA521CCAFE9700397F0C /* Build configuration list for PBXNativeTarget "EntryView" */;
 			buildPhases = (
 				0AB47BB8F3B1F0F00D5D5C62 /* [CP] Check Pods Manifest.lock */,
 				C4C0CA3C1CCAFE9700397F0C /* Sources */,
@@ -151,9 +151,9 @@
 			);
 			dependencies = (
 			);
-			name = socketWebRTC;
+			name = EntryView;
 			productName = socketWebRTC;
-			productReference = C4C0CA401CCAFE9700397F0C /* socketWebRTC.app */;
+			productReference = C4C0CA401CCAFE9700397F0C /* EntryView.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -181,7 +181,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C4C0CA3B1CCAFE9700397F0C /* Build configuration list for PBXProject "socketWebRTC" */;
+			buildConfigurationList = C4C0CA3B1CCAFE9700397F0C /* Build configuration list for PBXProject "EntryView" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -194,7 +194,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C4C0CA3F1CCAFE9700397F0C /* socketWebRTC */,
+				C4C0CA3F1CCAFE9700397F0C /* EntryView */,
 			);
 		};
 /* End PBXProject section */
@@ -445,7 +445,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C4C0CA3B1CCAFE9700397F0C /* Build configuration list for PBXProject "socketWebRTC" */ = {
+		C4C0CA3B1CCAFE9700397F0C /* Build configuration list for PBXProject "EntryView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C4C0CA501CCAFE9700397F0C /* Debug */,
@@ -454,7 +454,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C4C0CA521CCAFE9700397F0C /* Build configuration list for PBXNativeTarget "socketWebRTC" */ = {
+		C4C0CA521CCAFE9700397F0C /* Build configuration list for PBXNativeTarget "EntryView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C4C0CA531CCAFE9700397F0C /* Debug */,

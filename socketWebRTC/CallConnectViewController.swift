@@ -115,7 +115,7 @@ class CallConnectViewController: UIViewController, RTCSessionDescriptionDelegate
     }
     
     func getRoomName() -> String {
-        return (roomName == nil || roomName.isEmpty) ? "1111": "1111"
+        return (roomName == nil || roomName.isEmpty) ? "12345": roomName
     }
     
     var peerConnectionFactory: RTCPeerConnectionFactory! = nil
