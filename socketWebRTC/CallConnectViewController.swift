@@ -35,6 +35,8 @@ class CallConnectViewController: UIViewController, RTCSessionDescriptionDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(forName:NSNotification.Name.AVAudioSessionRouteChange , object:nil, queue:nil, using:catchNotification)
+
         self.initComponents();
         
         self.initWebRTC()
@@ -58,13 +60,29 @@ class CallConnectViewController: UIViewController, RTCSessionDescriptionDelegate
         // Do any additional setup after loading the view.
     }
     
+    func catchNotification(notification:Notification) -> Void {
+        let interuptionDict = notification.userInfo
+        if let interuptionRouteChangeReason = interuptionDict?[AVAudioSessionRouteChangeReasonKey] {
+            let routeChangeReason = interuptionRouteChangeReason as! UInt
+            switch (routeChangeReason) {
+            case AVAudioSessionRouteChangeReason.categoryChange.rawValue:
+                do {
+                    try AVAudioSession.sharedInstance().overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
+                } catch {
+                    
+                }
+            default:
+                break;
+            }
+        }
+    }
+    
     func initComponents() {
         remoteview_mask.layoutIfNeeded()
         remoteview_mask.setNeedsLayout()
         remoteview_mask.layer.cornerRadius = remoteview_mask.frame.size.width/2
         remoteview_mask.addSubview(remoteUserView)
         remoteview_mask.clipsToBounds  = true
-//        remoteUserView.contentMode = .scaleAspectFit
         
         openBtn.layoutIfNeeded()
         openBtn.setNeedsLayout()
